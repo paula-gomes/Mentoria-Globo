@@ -6,7 +6,8 @@ module.exports = (app) =>{
     });
 
     app.post('/votos',(req,res)=>{
-        res.status(200).send(req.body.nomeUm);
+        res.send(req.body.nome);
+        console.log(req.body.nome);
     });
 };
 

@@ -13,17 +13,13 @@
   <title>Votação BBB20</title>
 </head>
 
-<body>
+<body id="body">
   <div class="row d-flex justify-content-center">
   <h1>Paredão BBB20</h1>
   </div>
-  <div class="row d-flex justify-content-center">
-  <form  id="votacao">
-    <button type="button" id="participante1" name ="participante1" value ="participante1" class="btn btn-primary btn-lg" >Maria</button>  
-    <button type="button" id="participante2"name ="participante2" value ="participante2"class="btn btn-secondary btn-lg">João</buttton>
-    <button id="enviaVoto" type="submit" class="btn btn-secondary" mt-2>Enviar</button> 
-  </form>
-  
+  <div class="row d-flex justify-content-center">  
+    <button type="button" id="participante1" name ="participante1" value ="participante1" class="btn btn-primary btn-lg" onclick="participanteClicado(value)" >Maria</button>  
+    <button type="button" id="participante2"name ="participante2" value ="participante2"class="btn btn-secondary btn-lg" onclick="participanteClicado(value)">João</buttton>     
   </div>
 
   <!-- Optional JavaScript -->

@@ -19,7 +19,8 @@ function participanteClicado(value){
     
     .then(data=>{
         corpo.textContent = data;
-    })
+    }) 
+    .then(res.redirect('/')) 
     .catch(err=>err);
 
 }

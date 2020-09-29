@@ -9,6 +9,9 @@ module.exports = (app) =>{
         res.send(req.body.nome);
         console.log(req.body.nome);
     });
+
+    
+
 };
 
 

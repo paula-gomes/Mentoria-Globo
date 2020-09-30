@@ -1,0 +1,32 @@
+{
+  "name": "mentoria-globo",
+  "version": "1.0.0",
+  "description": "Sistema de votação ",
+  "main": "servidor.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "3": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sqlite": "^4.0.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paula-gomes/Mentoria-Globo.git"
+  },
+  "author": "Paula Gomes Amanda Duarte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paula-gomes/Mentoria-Globo/issues"
+  },
+  "homepage": "https://github.com/paula-gomes/Mentoria-Globo#readme"
+}

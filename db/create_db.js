@@ -18,10 +18,10 @@ CREATE TABLE IF NOT EXISTS votos (
 
 bd.serialize(()=>{
 
-    /*bd.run(PARTICIPANTES_SCHEMA,(err)=>{
+    bd.run(PARTICIPANTES_SCHEMA,(err)=>{
         console.log(err);
         process.exit(1);
-    });*/
+    });
 
     bd.run(VOTOS_SCHEMA,(err)=>{
         console.log(err);

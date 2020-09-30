@@ -1,3 +1,4 @@
+
 class VotosDao {
 
     constructor(bd) {
@@ -44,4 +45,6 @@ class VotosDao {
         });
 
     };
+
+    
 }

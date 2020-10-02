@@ -1,5 +1,5 @@
-const votoDao= require ('../src/DAO/inserir_votos');
-const bd = require('../db/create_db');
+const votoDao= require ('../../config/DAO/inserir_votos');
+const bd = require('../../db/create_db');
 
 class VotosController {
 

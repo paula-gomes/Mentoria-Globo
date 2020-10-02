@@ -43,12 +43,12 @@ VALUES
 
 bd.serialize(()=>{
 
-    bd.run(PARTICIPANTES_SCHEMA,(err)=>{
+    /*bd.run(PARTICIPANTES_SCHEMA,(err)=>{
         if(err){
         	console.log(err);
         	process.exit(1);
         }        
-    });
+    });*/
 
     bd.run(VOTOS_SCHEMA,(err)=>{
         if(err){
@@ -57,24 +57,30 @@ bd.serialize(()=>{
         }
     });
 
-    bd.run(ADD_PARTICIPANTES,(err)=>{
+    /*bd.run(ADD_PARTICIPANTES,(err)=>{
         if (err){
         	console.log(err);
         	process.exit(1);
         }
-    });
+    });*/
+
+    /*bd.run(`DROP TABLE participantes`,(err)=>{
+        if(err){
+        	console.log(err);
+        	process.exit(1);
+        }});*/
 
 });
 
-process.on('SIGINT',()=>{
+/*process.on('SIGINT',()=>{
 
     bd.close(()=>{
-        if (err){
-					console.log('bd fechado');
-					process.exit(0);
-				}
+        
+			console.log('bd fechado');
+			process.exit(0);
+		
     });
 
-});
+});*/
 
-
+module.exports=bd;

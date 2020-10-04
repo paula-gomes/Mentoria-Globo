@@ -1,5 +1,9 @@
-const sqlite = require("sqlite3").verbose();
-const bd = new sqlite.Database('bd_votacao.sqlite');
+// Esse arquivo deve ser rodado apenas uma vez //
+const path = require('path');
+const sqlite3 = require("sqlite3").verbose();
+
+const bdPath = path.resolve(__dirname, 'bd_participantes.db');
+const bd = new sqlite3.Database(bdPath);
 
 const PARTICIPANTES_SCHEMA =`
 
@@ -43,12 +47,12 @@ VALUES
 
 bd.serialize(()=>{
 
-    /*bd.run(PARTICIPANTES_SCHEMA,(err)=>{
+    bd.run(PARTICIPANTES_SCHEMA,(err)=>{
         if(err){
         	console.log(err);
         	process.exit(1);
         }        
-    });*/
+    });
 
     bd.run(VOTOS_SCHEMA,(err)=>{
         if(err){
@@ -57,30 +61,16 @@ bd.serialize(()=>{
         }
     });
 
-    /*bd.run(ADD_PARTICIPANTES,(err)=>{
+    bd.run(ADD_PARTICIPANTES,(err)=>{
         if (err){
         	console.log(err);
         	process.exit(1);
         }
-    });*/
+    }); 
 
-    /*bd.run(`DROP TABLE participantes`,(err)=>{
-        if(err){
-        	console.log(err);
-        	process.exit(1);
-        }});*/
+    
+   
 
-});
+}); 
 
-/*process.on('SIGINT',()=>{
-
-    bd.close(()=>{
-        
-			console.log('bd fechado');
-			process.exit(0);
-		
-    });
-
-});*/
-
-module.exports=bd;
+module.exports = bd;

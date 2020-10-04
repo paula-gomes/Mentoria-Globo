@@ -1,6 +1,6 @@
-const paginaUsuario = require ('../app/view/interfaceUsuario');
-const paginaParticipantes = require('../app/view/interfaceParticipantes');
-const participantesController = require ('../app/controller/participantesController');
+const paginaUsuario = require ('../app/view/interface_usuario');
+const paginaParticipantes = require('../app/view/interface_participantes');
+const participantesController = require('../app/controller/participantes_controller');
 
 module.exports = (app) =>{
 

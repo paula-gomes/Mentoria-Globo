@@ -1,6 +1,6 @@
-const participantesDao = require('../../config/DAO/participantesDao');
-const bd = require('../../config/db/create_db');
-const paginaParticipantes = require('../view/interfaceParticipantes');
+const participantesDao = require('../../config/DAO/participantes_DAO');
+const bd = require('../../config/bd/banco_de_dados');
+const paginaParticipantes = require('../view/interface_participantes');
 
 
 class ParticipantesController {
@@ -13,8 +13,7 @@ class ParticipantesController {
       instanciaParticipantes.visualizaParticipantes()
         .then((row) => {
           if (row.length > 0) {
-            res.send(paginaParticipantes(row));
-            
+            res.send(paginaParticipantes(row));            
           }
           else res.send(paginaParticipantes());
         })

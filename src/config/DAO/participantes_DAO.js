@@ -11,11 +11,9 @@ class ParticipantesDao{
 				`SELECT * FROM participantes`,
 				(err, rows) => {
 					if (err) {
-					return reject('Não é possivel ver participantes');
-					
+					return reject(err);						
 					}
-					return resolve(rows);
-									
+					return resolve(rows);									
 				}
 			)
 		});

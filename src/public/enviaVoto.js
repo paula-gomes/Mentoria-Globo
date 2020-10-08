@@ -1,6 +1,7 @@
 
-function participanteClicado(value){
+function participanteClicado(nome){
 
+    console.log(nome);
     const corpo = document.getElementById('body');
 
     const myHeaders = new Headers({ 'Content-type': 'application/json' });
@@ -13,7 +14,7 @@ function participanteClicado(value){
         body: JSON.stringify({nome: value})
     }
 
-    fetch(`http://localhost:3000/votos`,estruturaRequisicao)
+    fetch(`http://localhost:5000/votos`,estruturaRequisicao)
 
     .then(response =>response.text())
     

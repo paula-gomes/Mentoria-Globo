@@ -1,5 +1,25 @@
-const paginaUsuario =
-`<!doctype html>
+
+function paginaUsuario(participanteVotacao) {
+
+  let dadosParticipanteUm = '';
+  let dadosParticipanteDois = '';
+  let participanteVoto= '';
+  console.log(participanteVotacao);
+  //if(participanteVotacao.id == 1) {
+
+  participanteVotacao.forEach( participante => {
+      
+    participanteVoto += 
+    `<div class="col-6">
+      <img src="${participante.url}" class="mr-3" alt="...">
+      <div class="col-2">
+        <h5 class="mt-0 mb-1">${participante.nome}</h5>
+        <input type="checkbox" aria-label="Checkbox for following text input" id="participante1" name ="participante1" value ="participante1" onclick="participanteClicado(value)" >
+      </div>
+    </div>`
+}); 
+
+  return `<!doctype html>
   <html>
 
   <head>
@@ -20,24 +40,11 @@ const paginaUsuario =
       </div>
       <div class="d-flex justify-content-center"> 
         <div class="row">
-          <div class="col-6">
-            <img src="/static/assets/rafa.jpg" class="mr-3" alt="...">
-            <div class="col-2">
-              <h5 class="mt-0 mb-1">Rafa</h5>
-              <input type="checkbox" aria-label="Checkbox for following text input" id="participante1" name ="participante1" value ="participante1" onclick="participanteClicado(value)" >
-            </div>
-          </div>
-          <div class="col-6">
-            <img src="/static/assets/babu.jpg" class="mr-3" alt="...">
-            <div class="col-2">
-              <h5 class="mt-0 mb-1">Babu</h5>
-              <input type="checkbox" aria-label="Checkbox for following text input" id="participante2"name ="participante2" value ="participante2" onclick="participanteClicado(value)">  
-            </div>
-          </div>
+          ${participanteVoto}
+          
+        </div>
         </div>
       </div>   
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -53,5 +60,7 @@ const paginaUsuario =
   </body>
 
   </html>`
-;
-module.exports=paginaUsuario;
+    ;
+}
+
+module.exports = paginaUsuario;

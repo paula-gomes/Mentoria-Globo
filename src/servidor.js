@@ -3,7 +3,7 @@ const route= require('../src/routes/routes');
 const app = express();
 const bodyParser = require ('body-parser');
 
-const port = 3000;
+const port = 5000;
 
 app.use('/static', express.static('src/public'));
 app.use(bodyParser.urlencoded({extended:true}));

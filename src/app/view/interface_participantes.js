@@ -1,20 +1,22 @@
 
 
-function paginaParticipantes(listaParticipantes){
+function paginaParticipantes(listaParticipantes) {
 
-let linhaParticipantes = '';
+  let linhaParticipantes = '';
 
- listaParticipantes.forEach( participante =>{
+  listaParticipantes.forEach(participante => {
 
-    linhaParticipantes+=
-    `<div>
-        <h5>${participante.nome},${participante.url}</h5>               
-        <button type = "submit" > Editar</button>
-        <button type = "submit"> Deletar </button>       
-    </div>`
+    linhaParticipantes +=
+      `<div id = "container">
+        <div id="idParticipante" data-id-part ="${participante.id}">        
+        <h3 id="nomeParticipante" data-id-nome ="${participante.nome}">${participante.nome}</h3>
+        <h5 id="fotoParticipante">${participante.url}</h5>               
+        <button type = "submit" class="enviar" onclick="enviaParticipante(${participante.nome})"> Enviar </button>
+        </div>
+      </div>`
 
-});
-return `
+  });
+  return `
 <!doctype html>
   <html>
 
@@ -32,8 +34,11 @@ return `
 
   <body>
      <p> ${linhaParticipantes}</p>
+     
+     <script src="/static/escolhe_participantes.js"></script>
+     
   </body>
 
   </html>`
 }
-module.exports=paginaParticipantes;
+module.exports = paginaParticipantes;

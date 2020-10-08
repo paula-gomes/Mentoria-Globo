@@ -14,11 +14,22 @@ CREATE TABLE IF NOT EXISTS participantes (
     url TEXT
 );`
 
-const VOTOS_SCHEMA = `
+const VOTACAO_SCHEMA=`
+
+CREATE TABLE IF NOT EXISTS votacao (
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_1 INTEGER,
+    id_2 INTEGER,
+    total_votos_1 INTEGER,
+    total_votos_2 INTEGER 
+);`
+
+/*const VOTOS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS votos (
 
     id_votos INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_participante INTEGER );`
+    id_participante INTEGER );`*/
 
 const ADD_PARTICIPANTES = `
 INSERT or IGNORE INTO participantes (
@@ -45,32 +56,49 @@ VALUES
     ('Thelma Assis', 'https://bbb2020.com.br/wp-content/uploads/2019/02/thelma-bbb-20-768x432.jpg'),
     ('Victor Hugo teixeira', 'https://bbb2020.com.br/wp-content/uploads/2019/02/victor-hugo-bbb-20-768x432.jpg');`
 
+//criar banco votacao
+const ADD_VOTACAO = `
+INSERT or IGNORE INTO votacao (
+    id_1,
+    id_2,
+    total_votos_1,
+    total_votos_2
+) 
+VALUES
+		(1,16,0,0);
+`
+
+
 bd.serialize(()=>{
 
-    bd.run(PARTICIPANTES_SCHEMA,(err)=>{
+    /*bd.run(PARTICIPANTES_SCHEMA,(err)=>{
         if(err){
         	console.log(err);
         	process.exit(1);
         }        
     });
 
-    bd.run(VOTOS_SCHEMA,(err)=>{
+    bd.run(VOTACAO_SCHEMA,(err)=>{
         if(err){
         	console.log(err);
         	process.exit(1);
         }
     });
 
-    bd.run(ADD_PARTICIPANTES,(err)=>{
+    bd.run(ADD_PARTICIPANTES, (err)=>{
         if (err){
         	console.log(err);
         	process.exit(1);
         }
-    }); 
+        });
+    bd.run(ADD_VOTACAO, (err)=>{
+            if (err){
+                console.log(err);
+                process.exit(1);
+        }
+    }); */
 
-    
-   
-
+        
 }); 
 
 module.exports = bd;

@@ -4,16 +4,15 @@ const participantesController = require('../app/controller/participantes_control
 
 module.exports = (app) =>{
 
-    app.get('/', (req,res) => {
+    /*app.get('/', (req,res) => {
         res.send(paginaUsuario);        
-    });
+    });*/
 
-    app.get('/participantes',participantesController.mostraParticipante());
+    //app.get('/participantes',participantesController.mostraParticipante());
   
-    app.post('/votos',(req,res)=>{
-        res.send(req.body.nome);
-        console.log(req.body.nome);
-    });
+    app.get('/', participantesController.enviaParticipantes());
+    app.post('/votos',  )
+
 }
     
 

@@ -10,13 +10,35 @@ function paginaUsuario(participanteVotacao) {
   participanteVotacao.forEach( participante => {
       
     participanteVoto += 
-    `<div class="col-6">
-      <img src="${participante.url}" class="mr-3" alt="...">
-      <div class="col-2">
-        <h5 class="mt-0 mb-1">${participante.nome}</h5>
-        <input type="checkbox" aria-label="Checkbox for following text input" id="participante1" name ="participante1" value ="participante1" onclick="participanteClicado(value)" >
-      </div>
-    </div>`
+    `
+    <style>
+      input[type="radio"] {
+        visibility: hidden;       
+      }
+      label:hover, label:active {
+        display: block;
+        border: 4px solid #fd7e14;;
+        width: flex;
+        float: left;
+      }
+      input[type="radio"]:checked+label {
+        border-color: #ccf;
+      }
+      img{
+        width: 600px;
+      }
+
+    </style>
+      <div class="col-6">
+        <div class="col-2">
+          <label for="participante1">
+            <h5 class="center">${participante.nome}</h5>
+            <img src="${participante.url}" class="mr-3" alt="...">
+          </label>
+          <input type="radio" aria-label="Checkbox for following text input" id="participante1" name ="votacao" value ="participante1" onclick="participanteClicado(value)" />
+          <p></p>
+        </div>
+      </div>`
 }); 
 
   return `<!doctype html>
@@ -35,16 +57,27 @@ function paginaUsuario(participanteVotacao) {
   </head>
 
   <body id="body">
-      <div class="d-flex justify-content-center"> 
-          <h1>Paredão BBB20</h1>
+    <div class="card text-center">    
+      <div class="card-header">    
+        <h1>Quem deve ser eliminado ?</h1>
       </div>
-      <div class="d-flex justify-content-center"> 
-        <div class="row">
-          ${participanteVoto}
-          
+      <div class="card-body">
+        <div class="d-flex justify-content-center"> 
+          <div class="row">
+            ${participanteVoto}
+          </div>            
         </div>
-        </div>
-      </div>   
+        <div class="d-flex justify-content-center"> 
+          <div class="row">
+            <div class="col-12">
+              <button type="button" class="btn btn-primary">Envie seu voto agora</button>
+            </div>
+          </div>
+        </div>  
+      </div>  
+    </div>   
+    
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

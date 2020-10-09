@@ -10,8 +10,8 @@ function paginaParticipantes(listaParticipantes) {
       `<div id = "container">
         <div id="idParticipante" data-id-part ="${participante.id}">        
         <h3 id="nomeParticipante" data-id-nome ="${participante.nome}">${participante.nome}</h3>
-        <h5 id="fotoParticipante">${participante.url}</h5>               
-        <button type = "submit" class="enviar" onclick="enviaParticipante(${participante.nome})"> Enviar </button>
+        <img src = "${participante.url}"id="fotoParticipante"></img>               
+        <button type = "submit" class="enviar" onclick="enviaParticipante(${participante.nome})"> Enviar</button>
         </div>
       </div>`
 

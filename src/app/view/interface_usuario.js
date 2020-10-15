@@ -1,25 +1,22 @@
 
 function paginaUsuario(participanteVotacao) {
 
-  let dadosParticipanteUm = '';
-  let dadosParticipanteDois = '';
   let participanteVoto= '';
   console.log(participanteVotacao);
-  //if(participanteVotacao.id == 1) {
-
   participanteVotacao.forEach( participante => {
       
     participanteVoto += 
     `
     <style>
       input[type="radio"] {
-        visibility: hidden;       
+              
       }
       label:hover, label:active {
         display: block;
         border: 4px solid #fd7e14;;
         width: flex;
         float: left;
+        box-sizing: border-box;
       }
       input[type="radio"]:checked+label {
         border-color: #ccf;
@@ -27,15 +24,16 @@ function paginaUsuario(participanteVotacao) {
       img{
         width: 600px;
       }
-
     </style>
       <div class="col-6">
         <div class="col-2">
-          <label for="participante1">
+        <input type="radio" aria-label="Checkbox for following text input" id="${participante.id}" name ="votacao" value ="${participante.id}" onclick="participanteClicado(value)"/>
+          <label for="${participante.id}">
+            <div id="idParticipante" data-id-part ="${participante.id}"> 
             <h5 class="center">${participante.nome}</h5>
             <img src="${participante.url}" class="mr-3" alt="...">
-          </label>
-          <input type="radio" aria-label="Checkbox for following text input" id="participante1" name ="votacao" value ="participante1" onclick="participanteClicado(value)" />
+            </div>
+          </label>          
           <p></p>
         </div>
       </div>`
@@ -43,19 +41,15 @@ function paginaUsuario(participanteVotacao) {
 
   return `<!doctype html>
   <html>
-
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
     <title>Votação BBB20</title>
   </head>
-
   <body id="body">
     <div class="card text-center">    
       <div class="card-header">    
@@ -63,17 +57,20 @@ function paginaUsuario(participanteVotacao) {
       </div>
       <div class="card-body">
         <div class="d-flex justify-content-center"> 
-          <div class="row">
-            ${participanteVoto}
-          </div>            
+        <form method="POST" action="/votos">
+          <input type="hidden" name="_method" value="PUT">
+              <div class="row">
+              ${participanteVoto}
+              </div>                
         </div>
-        <div class="d-flex justify-content-center"> 
-          <div class="row">
-            <div class="col-12">
-              <button type="button" class="btn btn-primary">Envie seu voto agora</button>
+          <div class="d-flex justify-content-center"> 
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Envie seu voto agora</button>
+              </div>
             </div>
           </div>
-        </div>  
+        </form>  
       </div>  
     </div>   
     
@@ -91,7 +88,6 @@ function paginaUsuario(participanteVotacao) {
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"></script>
   </body>
-
   </html>`
     ;
 }

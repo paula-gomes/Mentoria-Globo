@@ -1,19 +1,24 @@
 const paginaUsuario = require ('../app/view/interface_usuario');
 const paginaParticipantes = require('../app/view/interface_participantes');
 const participantesController = require('../app/controller/participantes_controller');
+const votosController = require ('../app/controller/votos_controller');
 
 module.exports = (app) =>{
 
-    app.get('/', (req,res) => {
-        res.send(paginaUsuario);        
-    });
+    //rota para pagina de votacao//
+    app.get('/', participantesController.enviaParticipantes());
 
+    //rota para pagina com todos os participantes//
     app.get('/participantes',participantesController.mostraParticipante());
-  
-    app.get('/votacao', participantesController.enviaParticipantes());
-    app.post('/votos',  )
 
+    //rota para enviar o participantes que formara o paredao(que ainda tera seu metodo desenvolvido)
+    app.get('/participantes/:id',participantesController.mostraParticipante()); 
+    
+    
+    app.put('/votos', votosController.adicionaVoto());
 }
+    
+    
     
 
 

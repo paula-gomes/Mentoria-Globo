@@ -1,5 +1,3 @@
-
-
 function paginaParticipantes(listaParticipantes) {
 
   let linhaParticipantes = '';
@@ -11,7 +9,7 @@ function paginaParticipantes(listaParticipantes) {
         <div id="idParticipante" data-id-part ="${participante.id}">        
         <h3 id="nomeParticipante" data-id-nome ="${participante.nome}">${participante.nome}</h3>
         <img src = "${participante.url}"id="fotoParticipante"></img>               
-        <button type = "submit" class="enviar" onclick="enviaParticipante(${participante.nome})"> Enviar</button>
+        <button type = "submit" class="enviar" onclick="enviaParticipante(event)"> Enviar</button>
         </div>
       </div>`
 

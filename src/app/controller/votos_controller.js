@@ -1,6 +1,8 @@
 const votoDao= require ('../../config/DAO/inserir_votos_DAO');
 const bd = require('./../../config/bd/banco_de_dados');
-const paginaVotos = require('../view/interface_parcial_votos');
+const parcialVotos = require('../view/interface_parcial_votos');
+const ParticipantesDao = require('../../config/DAO/participantes_DAO');
+const ResultadoDao = require('../../config/DAO/resultado_DAO');
 
 class VotosController { 
     
@@ -9,7 +11,11 @@ class VotosController {
         return ((req,res) => {
             const instanciaVoto = new votoDao(bd);
             instanciaVoto.adicionaVoto(req.body.votacao)
-            .then(()=>res.send('Voto adicionado'))
+            .then(()=>{
+                const instanciaParticipantes = new ParticipantesDao(bd);
+                const instanciaResultado = new ResultadoDao(bd)
+                res.send(parcialVotos(instanciaResultado.buscarResultado(),instanciaParticipantes.enviaParticipantes()))
+            })
             .catch(err=> console.log(err));
         });
     }

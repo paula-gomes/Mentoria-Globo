@@ -1,17 +1,26 @@
+
+
 function paginaParticipantes(listaParticipantes) {
 
-  let linhaParticipantes = '';
+  let linhaParticipantes = "";
 
   listaParticipantes.forEach(participante => {
 
     linhaParticipantes +=
-      `<div id = "container">
-        <div id="idParticipante" data-id-part ="${participante.id}">        
-        <h3 id="nomeParticipante" data-id-nome ="${participante.nome}">${participante.nome}</h3>
-        <img src = "${participante.url}"id="fotoParticipante"></img>               
-        <button type = "submit" class="enviar" onclick="enviaParticipante(event)"> Enviar</button>
-        </div>
-      </div>`
+      `
+    
+      <tr class = "text-center">
+      <th scope="row">${participante.id}</th>
+      <th scope="row">${participante.nome}</th>
+      <th><img src = "${participante.url}"id="fotoParticipante" style = "width: 80px"class="img-fluid" alt="Responsive image"></img></th>
+      <th>${participante.nome}@globo.com</th>
+      <th>Rio de Janeiro</th>
+      <th>Ator</th>
+      <th>
+        <button name="button" type="button" class="btn btn-primary">Enviar</button>
+        <button name="button" type="button" class="btn btn-danger">Deletar</button>
+      </th>
+      </tr>`
 
   });
   return `
@@ -31,8 +40,27 @@ function paginaParticipantes(listaParticipantes) {
   </head>
 
   <body>
-     <p> ${linhaParticipantes}</p>
-     
+  <div class= "container">
+    <div class="table-responsive-sm">
+      <table id = "tabelaParticipantes"class="table table-hover">
+        <thead class ="text-center">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Participante</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Email</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Profissão</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+            ${linhaParticipantes}
+        </tbody>
+      </table>
+    </div>
+    </div>
+
      <script src="/static/escolhe_participantes.js"></script>
      
   </body>

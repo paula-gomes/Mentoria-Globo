@@ -8,33 +8,27 @@ function paginaUsuario(participanteVotacao) {
     participanteVoto += 
     `
     <style>
-      input[type="radio"] {
-              
-      }
-      label:hover, label:active {
-        display: block;
-        border: 4px solid #fd7e14;;
-        width: flex;
-        float: left;
-        box-sizing: border-box;
-      }
-      input[type="radio"]:checked+label {
-        border-color: #ccf;
-      }
-      img{
-        width: 600px;
-      }
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+    img {
+      border-radius: 50%
+    }
+    input[type="radio"] {
+      visibility: hidden;
+  }
+    
+    .checked {
+      border: 6px solid #d39e00;
+    }
     </style>
+
       <div class="col-6">
         <div class="col-2">
-        <input type="radio" aria-label="Checkbox for following text input" id="${participante.id}" name ="votacao" value ="${participante.id}" onclick="participanteClicado(value)"/>
-          <label for="${participante.id}">
-            <div id="idParticipante" data-id-part ="${participante.id}"> 
-            <h5 class="center">${participante.nome}</h5>
-            <img src="${participante.url}" class="mr-3" alt="...">
-            </div>
-          </label>          
-          <p></p>
+          <input type="radio" aria-label="Checkbox for following text input" id="input${participante.id}" name ="votacao" value ="${participante.id}" onclick="participanteClicado(value)"/>
+          <h5 class="center">${participante.nome}</h5>
+          <img name = "votacao" value = "${participante.id}" src="${participante.url}" id ="participante${participante.id}"class="mr-3" alt="..." onclick="selectImage(${participante.id})">
         </div>
       </div>`
 }); 
@@ -84,6 +78,7 @@ function paginaUsuario(participanteVotacao) {
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"></script>
     <script src="/static/enviaVoto.js"></script>
+    <script src="/static/selectImage.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"></script>

@@ -13,7 +13,7 @@ function paginaUsuario(participanteVotacao) {
       justify-content: center;
     }
     img {
-      border-radius: 50%
+      border-radius: 10%
     }
     input[type="radio"] {
       visibility: hidden;
@@ -44,7 +44,16 @@ function paginaUsuario(participanteVotacao) {
   </head>
   <body id="body">
     <header class="card-header text-center">    
-      <h1>Quem deve ser eliminado ?</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1">
+          <img src = "static/imagens/mascote.jpeg" width="40" height="40" class="d-inline-block " alt="">
+        </div>
+        <div class="col-sm-11">
+          <h2>Quem deve ser eliminado ?</h2>
+        </div>
+      </div>
+    </div>
     </header>
     <div class="card-body">
       <form method="POST" action="/votos">

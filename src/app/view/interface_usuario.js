@@ -18,18 +18,16 @@ function paginaUsuario(participanteVotacao) {
     input[type="radio"] {
       visibility: hidden;
   }
-    
+ 
     .checked {
       border: 6px solid #d39e00;
     }
     </style>
 
-      <div class="col-6">
-        <div class="col-2">
+        <div class="col-sm">
           <input type="radio" aria-label="Checkbox for following text input" id="input${participante.id}" name ="votacao" value ="${participante.id}" onclick="participanteClicado(value)"/>
-          <h5 class="center">${participante.nome}</h5>
-          <img name = "votacao" value = "${participante.id}" src="${participante.url}" id ="participante${participante.id}"class="mr-3" alt="..." onclick="selectImage(${participante.id})">
-        </div>
+          <h5 class="text-center">${participante.nome}</h5>
+          <img name = "votacao" class="img-fluid" alt="Responsive image "   value = "${participante.id}" src="${participante.url}" id ="participante${participante.id}"class="mr-3" alt="..." onclick="selectImage(${participante.id})">
       </div>`
 }); 
 
@@ -45,21 +43,21 @@ function paginaUsuario(participanteVotacao) {
     <title>Votação BBB20</title>
   </head>
   <body id="body">
-    <div class="card text-center">    
-      <div class="card-header">    
-        <h1>Quem deve ser eliminado ?</h1>
-      </div>
-      <div class="card-body">
-        <div class="d-flex justify-content-center"> 
-        <form method="POST" action="/votos">
-          <input type="hidden" name="_method" value="PUT">
+    <header class="card-header text-center">    
+      <h1>Quem deve ser eliminado ?</h1>
+    </header>
+    <div class="card-body">
+      <form method="POST" action="/votos">
+        <input type="hidden" name="_method" value="PUT">
+            <div class="container"> 
               <div class="row">
-              ${participanteVoto}
-              </div>                
-        </div>
+                ${participanteVoto}
+              </div> 
+            </div> 
+          </div>                   
           <div class="d-flex justify-content-center"> 
             <div class="row">
-              <div class="col-12">
+              <div class="col-sm-12 ">
                 <button type="submit" class="btn btn-primary">Envie seu voto agora</button>
               </div>
             </div>

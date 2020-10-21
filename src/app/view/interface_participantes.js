@@ -14,8 +14,7 @@ function paginaParticipantes(listaParticipantes) {
       <th scope="row">${participante.nome}</th>
       <th><img src = "${participante.url}"id="fotoParticipante" style = "width: 80px"class="img-fluid" alt="Responsive image"></img></th>
       <th>${participante.nome}@globo.com</th>
-      <th>Rio de Janeiro</th>
-      <th>Ator</th>
+      <th>${participante.nome}</th>
       <th>
         <button name="button" type="button" class="btn btn-primary">Enviar</button>
         <button name="button" type="button" class="btn btn-danger">Deletar</button>

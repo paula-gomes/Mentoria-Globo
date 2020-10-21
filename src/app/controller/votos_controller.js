@@ -1,6 +1,6 @@
 const votoDao= require ('../../config/DAO/inserir_votos_DAO');
 const bd = require('./../../config/bd/banco_de_dados');
-const totalVotos = require('../view/interface_total_votos');
+const totalVotos = require('../view/interface_parcial_votos');
 const ResultadoDao = require('../../config/DAO/resultado_DAO');
 
 class VotosController { 
@@ -9,7 +9,6 @@ class VotosController {
 
         return ((req,res) => {
 				const instanciaVoto = new votoDao(bd);
-				console.log(req.body.votacao);
 				res.redirect('/votos');
 				instanciaVoto.adicionaVoto(req.body.votacao)					
             .then(()=> res.redirect('/votos'))    
@@ -22,9 +21,7 @@ class VotosController {
 				const instanciaResultado = new ResultadoDao(bd)
 					instanciaResultado.buscarResultado()					     
 					.then((resultado)=>{      
-						 
-					console.log(resultado);
-					res.send(totalVotos(resultado))
+						res.send(totalVotos(resultado))
 					})
 					.catch(err=> console.log(err));
 			})

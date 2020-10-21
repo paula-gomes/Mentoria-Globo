@@ -11,12 +11,13 @@ function paginaTotalVotos(listaParticipantes) {
       
         <tr class = "text-center">
         <th scope="row">${participante.id}</th>
+        <th>${participante.total_votos_1}</th>
         <th scope="row">${participante.nome}</th>
         <th><img src = "${participante.url}"id="fotoParticipante" style = "width: 80px"class="img-fluid" alt="Responsive image"></img></th>
         <th>${participante.nome}@globo.com</th>
-        <th>${participante.total_votos_1}</th>
-        <th>${participante.total_votos_2}</th>
         <th>Ator</th>
+        <th>Ator</th>
+
         <th>
           <button name="button" type="button" class="btn btn-primary">Enviar</button>
           <button name="button" type="button" class="btn btn-danger">Deletar</button>
@@ -47,6 +48,7 @@ function paginaTotalVotos(listaParticipantes) {
           <thead class ="text-center">
             <tr>
               <th scope="col">id</th>
+              <th scope="col">Votos</th>
               <th scope="col">Participante</th>
               <th scope="col">Foto</th>
               <th scope="col">Email</th>

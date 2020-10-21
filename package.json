@@ -5,6 +5,7 @@
   "main": "servidor.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chart.js": "^2.9.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "method-override": "^3.0.0",

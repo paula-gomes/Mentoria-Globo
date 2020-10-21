@@ -1,6 +1,6 @@
 function charts(resultado){
     console.log("grafico resultado",resultado);
-    var ctx = document.getElementById("myChart");
+    
      return new Chart(ctx, {
     type: 'pie',
     data: {

@@ -16,9 +16,9 @@ class VotosDao {
 				this._bd.run(`UPDATE votacao SET total_votos_1 =  total_votos_1 + 1`,[],(err,result) => {
 					if (err) {
 						console.log(err)
-						return reject('Não foi possivel incrementar voto do participante 1')
+						reject('Não foi possivel incrementar voto do participante 1')
 					}
-					return resolve(result);
+						resolve(result);
 				})
 			})
 		}
@@ -28,9 +28,9 @@ class VotosDao {
 				this._bd.run(`UPDATE votacao SET total_votos_2 =  total_votos_2 + 1`,[],(err,result) => {
 					if (err) {
 						console.log(err)
-						return reject('Não foi possivel incrementar voto do participantes 2 ')
+						reject('Não foi possivel incrementar voto do participantes 2 ')
 					}
-					return resolve(result);
+						resolve(result);
 				})
 			})
 		}

@@ -1,6 +1,6 @@
 const votoDao= require ('../../config/DAO/inserir_votos_DAO');
 const bd = require('./../../config/bd/banco_de_dados');
-const parcialVotos = require('../view/interface_parcial_votos');
+const totalVotos = require('../view/interface_total_votos');
 const ResultadoDao = require('../../config/DAO/resultado_DAO');
 
 class VotosController { 
@@ -24,7 +24,7 @@ class VotosController {
 					.then((resultado)=>{      
 						 
 					console.log(resultado);
-					res.send(parcialVotos(resultado))
+					res.send(totalVotos(resultado))
 					})
 					.catch(err=> console.log(err));
 			})

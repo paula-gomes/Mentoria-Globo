@@ -70,7 +70,7 @@ function paginaUsuario(participanteVotacao) {
           <div class="d-flex justify-content-center"> 
             <div class="row">
               <div class="col-sm-12 ">
-                <button type="submit" class="btn btn-primary">Envie seu voto agora</button>
+                <button type="submit" class="btn btn-primary" >Envie seu voto agora</button>                
               </div>
             </div>
           </div>

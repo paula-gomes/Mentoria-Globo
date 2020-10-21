@@ -16,6 +16,8 @@ module.exports = (app) =>{
     
     
     app.put('/votos', votosController.adicionaVoto());
+
+    app.get('/votos',votosController.pegaResultado());
 }
     
     

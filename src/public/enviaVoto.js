@@ -1,7 +1,8 @@
 
 function participanteClicado(value){
 		const id = value;
-		console.log(id);}
+		console.log(id);
+}
 
 
 /*function participanteClicado(nome) {

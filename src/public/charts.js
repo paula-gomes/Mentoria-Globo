@@ -1,11 +1,12 @@
 function charts(resultado){
+    console.log("grafico resultado",resultado);
     var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
+     return new Chart(ctx, {
     type: 'pie',
     data: {
         labels: ['OK', 'WARNING'],
         datasets: [{
-        label: '# of Tomatoes',
+        label: 'Votos',
         data: [resultado.total_votos_1, resultado.total_votos_2],
         backgroundColor: [
             'rgba(255, 99, 132, 0.5)',
@@ -25,4 +26,3 @@ function charts(resultado){
     }
     });
 }
-module.exports = charts

@@ -1,39 +1,8 @@
 
-function parcialVotos(resultado,participantes) {
+function parcialVotos(resultado) {
 
-    let parcialParticipantes= '';
-    participantes.forEach( item => {
-        
-    parcialParticipantes += 
-      `
-      <style>
-      .container {
-        display: flex;
-        justify-content: center;
-      }
-      img {
-        border-radius: 50%
-      }
-      input[type="radio"] {
-        visibility: hidden;
-    }
-      
-      .checked {
-        border: 6px solid #d39e00;
-      }
-      </style>
-  
-        <div class="col-6">
-          <div class="col-2">
-            <input type="radio" aria-label="Checkbox for following text input" id="input${item.id}" name ="votacao" value ="${item.id}" onclick="participanteClicado(value)"/>
-            <h5 class="center">${item.nome}</h5>
-            <img name = "votacao" value = "${item.id}" src="${item.url}" id ="participante${item.id}"class="mr-3" alt="..." onclick="selectImage(${item.id})">
-            <canvas id="myChart" width="400" height="400" onload = "charts(${resultado})"></canvas>
-            </div>
-        </div>`
-  }); 
-  
-    return `<!doctype html>
+   console.log('grafico result',resultado);
+  return`<!doctype html>
     <html>
     <head>
       <!-- Required meta tags -->
@@ -44,46 +13,71 @@ function parcialVotos(resultado,participantes) {
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
       <title>Votação BBB20</title>
     </head>
-    <body id="body">
-      <div class="card text-center">    
+    <body onload ="${charts(resultado,this.document.getElementById('myChart'))}" id="body">
+      <div class="card text-center"> 
+
         <div class="card-header">    
-          <h1>Quem deve ser eliminado ?</h1>
+          <h1>Parcial da Votação</h1>
         </div>
-        <div class="card-body">
-          <div class="d-flex justify-content-center"> 
-          <form method="POST" action="/votos">
-            <input type="hidden" name="_method" value="PUT">
-                <div class="row">
-                ${parcialParticipantes}
-                </div>                
-          </div>
-            <div class="d-flex justify-content-center"> 
-              <div class="row">
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Envie seu voto agora</button>
-                </div>
-              </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-center">           
+          <div class="row">
+            <div class="col-2">          
+              <canvas id="myChart" width="400" height="400"></canvas>
             </div>
-          </form>  
-        </div>  
+          </div>                
+        </div>            
+        <button type="submit" class="btn btn-primary">Vote novamente</button>
+      </div>             
+      </div>  
       </div>   
       
     
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-      <script src="/static/charts.js"></script>
+        crossorigin="anonymous"></script>      
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>     
+      
     </body>
     </html>`
       ;
   }
+
+  function charts(resultado,path){
+    console.log("grafico resultado",resultado);
+    
+     return new Chart(path, {
+    type: 'pie',
+    data: {
+        labels: ['OK', 'WARNING'],
+        datasets: [{
+        label: 'Votos',
+        data: [resultado.total_votos_1, resultado.total_votos_2],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)'
+        ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+        //cutoutPercentage: 40,
+        responsive: false,
+
+    }
+    });
+}
   
   module.exports = parcialVotos;

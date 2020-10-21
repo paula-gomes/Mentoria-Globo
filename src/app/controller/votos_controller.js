@@ -1,17 +1,28 @@
-const votoDao= require ('../../config/DAO/inserir_votos_DAO');
+
 const bd = require('./../../config/bd/banco_de_dados');
 const paginaVotos = require('../view/interface_parcial_votos');
+const votosDao = require('../../config/DAO/inserir_votos_DAO');
 
 class VotosController { 
     
     static adicionaVoto () {
 
         return ((req,res) => {
-            const instanciaVoto = new votoDao(bd);
+            const instanciaVoto = new votosDao(bd);
             instanciaVoto.adicionaVoto(req.body.votacao)
             .then(()=>res.send('Voto adicionado'))
             .catch(err=> console.log(err));
         });
+    }
+
+    static pegaResultado(){
+
+        return ((req,res) =>{
+            const instanciaVoto = new votosDao(bd);
+            instanciaVoto.geraResultado()
+            .then((data)=> res.send(votacao.data))
+            .catch(err=>res.send(err));
+        })
     }
 }
 module.exports = VotosController;

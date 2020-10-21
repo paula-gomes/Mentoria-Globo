@@ -14,7 +14,11 @@ module.exports = (app) =>{
     //rota para enviar o participantes que formara o paredao(que ainda tera seu metodo desenvolvido)
     app.get('/participantes/:id',participantesController.mostraParticipante()); 
     
-    
+    app.get('/votos', votosController.pegaResultado());
+   /* app.get('/votos', (req, resp)=>{
+        resp.send('/static/porcetagem.html');
+    });*/
+
     app.put('/votos', votosController.adicionaVoto());
 }
     

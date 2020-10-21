@@ -22,6 +22,9 @@ function paginaUsuario(participanteVotacao) {
     .checked {
       border: 6px solid #d39e00;
     }
+    .rounded-bottom {
+      border-width: 6px;
+    }
     </style>
 
         <div class="col-sm">
@@ -43,17 +46,17 @@ function paginaUsuario(participanteVotacao) {
     <title>Votação BBB20</title>
   </head>
   <body id="body">
-    <header class="card-header text-center">    
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-1">
-          <img src = "static/imagens/mascote.jpeg" width="40" height="40" class="d-inline-block " alt="">
-        </div>
-        <div class="col-sm-11">
-          <h2>Quem deve ser eliminado ?</h2>
+    <header class="card-header text-center border-secondary rounded-bottom">    
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-1">
+            <img src = "static/imagens/mascote.jpeg" width="40" height="40" class="d-inline-block " alt="">
+          </div>
+          <div class="col-sm-11">
+            <h2>QUEM DEVE SER ELIMINADO ?</h2>
+          </div>
         </div>
       </div>
-    </div>
     </header>
     <div class="card-body">
       <form method="POST" action="/votos">

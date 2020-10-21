@@ -16,8 +16,8 @@ function paginaParticipantes(listaParticipantes) {
       <th>${participante.nome}@globo.com</th>
       <th>${participante.nome}</th>
       <th>
-        <button name="button" type="button" class="btn btn-primary">Enviar</button>
-        <button name="button" type="button" class="btn btn-danger">Deletar</button>
+        <button id = ${participante.id} name="button" type="button" class="btn btn-primary">Enviar</button>
+        <button id = ${participante.id} name="button" type="button" class="btn btn-danger">Deletar</button>
       </th>
       </tr>`
 

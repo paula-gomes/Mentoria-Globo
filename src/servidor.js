@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverRide = require('method-override');
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use('/static', express.static('src/public'));
 
